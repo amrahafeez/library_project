@@ -240,6 +240,4 @@ loadTheme();
 loadBooks();
 render();
 
-// Intentional syntax error for Assignment Step 9 (CI Failure Demonstration)
-const triggerCIFailure = ;
 
