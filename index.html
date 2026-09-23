@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Wah Reading Room — Library Records</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="shelf-bg" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="brand">
+    <span class="brand-mark">§</span>
+    <div>
+      <h1>The Wah Reading Room</h1>
+      <p class="tagline">A record of every book on the shelf, and where it's gone.</p>
+    </div>
+  </div>
+  <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+</header>
+
+<section class="stats-bar" aria-label="Library statistics">
+  <div class="stat">
+    <span class="stat-num" id="statTotal">0</span>
+    <span class="stat-label">Titles catalogued</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num" id="statAvailable">0</span>
+    <span class="stat-label">On the shelf</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num" id="statIssued">0</span>
+    <span class="stat-label">Checked out</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num" id="statOverdue">0</span>
+    <span class="stat-label">Overdue</span>
+  </div>
+</section>
+
+<main>
+  <section class="panel form-panel" aria-label="Add a book">
+    <h2>Add a book</h2>
+    <form id="bookForm">
+      <div class="field">
+        <label for="title">Title</label>
+        <input type="text" id="title" placeholder="e.g. The Alchemist" required>
+      </div>
+      <div class="field">
+        <label for="author">Author</label>
+        <input type="text" id="author" placeholder="e.g. Paulo Coelho" required>
+      </div>
+      <div class="field">
+        <label for="isbn">ISBN</label>
+        <input type="text" id="isbn" placeholder="e.g. 978-0061122415" required>
+      </div>
+      <div class="field">
+        <label for="category">Category</label>
+        <select id="category">
+          <option>Fiction</option>
+          <option>Non-Fiction</option>
+          <option>Science</option>
+          <option>History</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-primary">Add to catalogue</button>
+    </form>
+  </section>
+
+  <section class="panel catalogue-panel" aria-label="Book catalogue">
+    <div class="catalogue-head">
+      <h2>Catalogue</h2>
+      <div class="controls">
+        <input type="text" id="searchInput" placeholder="Search by title or author…">
+        <select id="statusFilter">
+          <option value="all">All statuses</option>
+          <option value="Available">On the shelf</option>
+          <option value="Issued">Checked out</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="shelf" class="shelf"></div>
+    <p id="emptyMessage" class="empty-message">The shelf is empty. Add your first book above.</p>
+  </section>
+</main>
+
+<div id="issueModal" class="modal-backdrop hidden">
+  <div class="modal">
+    <h3>Check out this book</h3>
+    <div class="field">
+      <label for="borrowerName">Borrower's name</label>
+      <input type="text" id="borrowerName" placeholder="e.g. Ahmed Raza">
+    </div>
+    <div class="field">
+      <label for="dueDate">Due date</label>
+      <input type="date" id="dueDate">
+    </div>
+    <div class="modal-actions">
+      <button id="modalCancel" class="btn-ghost">Cancel</button>
+      <button id="modalConfirm" class="btn-primary">Confirm checkout</button>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>Library Book Record Application &middot; Software Engineering Assignment 01 &middot; COMSATS Wah</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
